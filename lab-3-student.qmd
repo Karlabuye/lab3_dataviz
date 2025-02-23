@@ -1,3 +1,13 @@
+---
+title: "Lab3: ggplot Data viz w/Rodents"
+format: html
+editor: source
+execute: 
+  echo: true
+  error: true
+  embed-resources: true
+  code-tools: true
+---
 # Part 1: Setup
 
 ## GitHub Workflow
@@ -145,7 +155,7 @@ It takes a larger cognitive load to read text that is rotated. It is common prac
 
 ggplot(data = surveys, aes(x= weight, y= species))+
   geom_jitter(color = "springgreen4",alpha = 0.5 )+
-  geom_boxplot(outliers = FALSE)+
+  geom_boxplot(outliers = FALSE)+#get rid of outliers
   labs(x= "Weight of Organisms (g)", y= "Species names", title= "Weight trends Among Species")
 
 
@@ -191,8 +201,8 @@ Some people (and journals) prefer for boxplots to be stacked with a specific ori
 #| label: rotated-boxplot
 ggplot(data = surveys, aes(y= weight, x= species))+
   geom_jitter(color = "springgreen4",alpha = 0.5 )+
-  geom_boxplot(outliers = FALSE, orientation = "x")+
-  theme(axis.text.x = element_text(angle = 45))+
+  geom_boxplot(outliers = FALSE, orientation = "x")+ #change box plots orientations 
+  theme(axis.text.x = element_text(angle = 45))+#tilt axis labels
   labs(x= "Weight of Organisms (g)", y= "Species names", title= "Weight trends Among Species")
 
 ```
